@@ -62,6 +62,7 @@ class App extends Component {
 
   handleSaveCaption(caption) {
     this.refs.videoPlayer.addCaption(caption);
+    this.refs.videoPlayer.play();
   }
 }
 

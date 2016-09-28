@@ -5,6 +5,7 @@ class Video extends Component {
     super(props);
 
     this.addCaption = this.addCaption.bind(this);
+    this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
   }
 
@@ -32,6 +33,10 @@ class Video extends Component {
 
   addCaption(caption) {
     console.log(`addCaption(${JSON.stringify(caption)})`);
+  }
+
+  play() {
+    this.videoEl.play();
   }
 
   pause() {
