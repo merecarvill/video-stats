@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './App.css';
+import videoSource from "./duke-vs-unc-1941.mp4";
 import Hello from './Hello.js';
 import Video from './Video.js';
 import CaptionForm from './CaptionForm.js';
@@ -19,7 +20,7 @@ class App extends Component {
 
   render() {
     const sources = [
-      { url: "https://media.w3.org/2010/05/sintel/trailer.mp4", type: "video/mp4" }
+      { url: videoSource, type: "video/mp4" }
     ];
 
     return (
@@ -30,7 +31,7 @@ class App extends Component {
             </div>
 
             <div className="video-container">
-              <Video sources={sources}></Video>
+              <Video muted sources={sources}></Video>
             </div>
             
             <CaptionForm visible={!this.state.paused} />

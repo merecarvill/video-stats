@@ -3,7 +3,13 @@ import React, { Component } from 'react';
 class Video extends Component {
   render() {
     return (
-      <video controls onPause={() => { console.log("paused") }}>
+      <video
+        controls
+        muted={this.props.muted}
+        autoPlay={this.props.autoPlay}
+        poster={this.props.poster}
+        onPause={ () => { console.log("paused") } }
+      >
         {this.renderSources(this.props.sources)}
       </video>
     );
