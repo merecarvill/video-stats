@@ -11,10 +11,11 @@ class CaptionForm extends Component {
     this.state = {
       caption: "",
       startTime: "",
-      endTime: ""
+      duration: 5
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,9 +54,9 @@ class CaptionForm extends Component {
           />
           <br/>
           <TextField
-            placeholder="End time"
-            name="endTime"
-            value={this.state.endTime}
+            placeholder="Duration"
+            name="duration"
+            value={this.state.duration}
             onChange={this.handleChange}
           />
           <br/>
