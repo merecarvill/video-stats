@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { bindAll } from 'class-bind';
 
 class Video extends Component {
   constructor(props) {
@@ -8,6 +9,7 @@ class Video extends Component {
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
 		this.textTrack = undefined;
+    bindAll(Video.prototype);
   }
 
   render() {

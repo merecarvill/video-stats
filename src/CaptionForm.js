@@ -3,12 +3,14 @@ import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Storage from "./storage.js";
+import { bindAll } from 'class-bind';
 
 injectTapEventPlugin();
 
 class CaptionForm extends Component {
   constructor(props) {
     super(props);
+    bindAll(CaptionForm.prototype);
 
     this.state = {
       caption: "",
@@ -17,9 +19,6 @@ class CaptionForm extends Component {
     };
     this.storage = new Storage();
     this.storage.clear();
-
-    this.saveCaption = this.saveCaption.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
