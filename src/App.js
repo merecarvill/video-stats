@@ -37,7 +37,7 @@ class App extends Component {
 								></Video>
             </div>
 
-            <CaptionForm visible={!this.state.paused} />
+            <CaptionForm visible={this.state.paused} />
         </div>
       </MuiThemeProvider>
     );
