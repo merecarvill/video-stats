@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
 import './App.css';
+import videoSource from "./duke-vs-unc-1941.mp4";
 import Hello from './Hello.js';
 import Video from './Video.js';
 
 class App extends Component {
   render() {
     const sources = [
-      { url: "https://media.w3.org/2010/05/sintel/trailer.mp4", type: "video/mp4" }
+      { url: videoSource, type: "video/mp4" }
     ];
 
     return (
@@ -17,7 +18,7 @@ class App extends Component {
         </div>
         <Hello greeting="Hello" />
 
-        <Video sources={sources}></Video>
+        <Video muted sources={sources}></Video>
       </div>
     );
   }
