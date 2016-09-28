@@ -10,7 +10,7 @@ class CaptionForm extends Component {
 
     this.state = {
       caption: "",
-      startTime: "",
+      startTime: this.props.startTime,
       endTime: ""
     }
 
@@ -29,40 +29,42 @@ class CaptionForm extends Component {
     change[fieldName] = fieldValue;
     this.setState(change);
   }
-  
+
   render() {
     if (this.props.visible) {
       return(
         <form className="captionForm">
-          <TextField 
+          <TextField
             placeholder="Enter caption"
             name="caption"
             value={this.state.caption}
             onChange={this.handleChange}
           />
           <br/>
-          <TextField 
+          <TextField
             placeholder="Start time"
             name="startTime"
             value={this.state.startTime}
             onChange={this.handleChange}
           />
           <br/>
-          <TextField 
+          <TextField
             placeholder="End time"
             name="endTime"
             value={this.state.endTime}
             onChange={this.handleChange}
           />
           <br/>
-          <RaisedButton 
-            label="Save" 
-            onClick={this.handleSubmit}  primary={true} 
+          <RaisedButton
+            label="Save"
+            onClick={this.handleSubmit}  primary={true}
           />
         </form>
       );
     } else {
-      return null;
+			return(
+				<p>Press pause to add a comment</p>
+			)
     }
   }
 }

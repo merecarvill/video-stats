@@ -10,7 +10,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      paused: false
+      paused: false,
+			currentTime: 0.0
     }
     this.handlePause = this.handlePause.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
@@ -31,26 +32,28 @@ class App extends Component {
             <div className="video-container">
               <Video
                 muted
+								autoPlay
 								sources={sources}
 								onPause={this.handlePause}
 								onPlay={this.handlePlay}
 								></Video>
             </div>
 
-            <CaptionForm visible={this.state.paused} />
+            <CaptionForm
+							startTime={this.state.currentTime}
+							visible={this.state.paused}
+								/>
         </div>
       </MuiThemeProvider>
     );
   }
 
-  handlePause() {
-    this.setState({ paused: true })
-    console.log("paused!");
+  handlePause(e) {
+    this.setState({ paused: true, currentTime: e.currentTarget.currentTime });
   }
 
   handlePlay() {
-    this.setState({ paused: false })
-    console.log("start!");
+    this.setState({ paused: false });
   }
 }
 
