@@ -6,6 +6,10 @@ import Video from './Video.js';
 
 class App extends Component {
   render() {
+    const sources = [
+      { url: "https://media.w3.org/2010/05/sintel/trailer.mp4", type: "video/mp4" }
+    ];
+
     return (
       <div className="App">
         <div className="App-header">
@@ -13,7 +17,7 @@ class App extends Component {
         </div>
         <Hello greeting="Hello" />
 
-        <Video source="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></Video>
+        <Video sources={sources}></Video>
       </div>
     );
   }
