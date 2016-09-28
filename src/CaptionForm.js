@@ -69,13 +69,16 @@ class CaptionForm extends Component {
           <br/>
           <RaisedButton
             label="Save"
-            onClick={this.saveCaption}  primary={true}
+            onClick={this.saveCaption} primary={true}
           />
         </form>
       );
     } else {
 			return(
-				<p>Press pause to add a comment</p>
+        <RaisedButton
+          label="Add caption"
+          onClick={this.props.onStartCaption} primary={true}
+        />
 			)
     }
   }

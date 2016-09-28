@@ -5,6 +5,8 @@ class Video extends Component {
     super(props);
 
     this.addCaption = this.addCaption.bind(this);
+    this.play = this.play.bind(this);
+    this.pause = this.pause.bind(this);
   }
 
   render() {
@@ -35,6 +37,14 @@ class Video extends Component {
 		var textTrack = this.videoEl.addTextTrack("captions");
 		textTrack.mode = "showing";
 		textTrack.addCue(new window.VTTCue(caption.startTime, caption.startTime + caption.duration, caption.caption));
+  }
+
+  play() {
+    this.videoEl.play();
+  }
+
+  pause() {
+    this.videoEl.pause();
   }
 }
 

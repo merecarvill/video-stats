@@ -45,6 +45,7 @@ class App extends Component {
             startTime={this.state.currentTime}
             visible={this.state.paused}
             onSaveCaption={this.handleSaveCaption}
+            onStartCaption={ () => this.refs.videoPlayer.pause() }
           />
         </div>
       </MuiThemeProvider>
@@ -61,6 +62,7 @@ class App extends Component {
 
   handleSaveCaption(caption) {
     this.refs.videoPlayer.addCaption(caption);
+    this.refs.videoPlayer.play();
   }
 }
 
