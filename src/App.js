@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './App.css';
@@ -10,7 +9,7 @@ import CaptionForm from './CaptionForm.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       paused: false
     }
@@ -32,7 +31,7 @@ class App extends Component {
             <div className="video-container">
               <Video muted sources={sources}></Video>
             </div>
-            
+
             <CaptionForm visible={!this.state.paused} />
         </div>
       </MuiThemeProvider>
