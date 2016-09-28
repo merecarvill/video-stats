@@ -7,6 +7,7 @@ class Video extends Component {
     this.addCaption = this.addCaption.bind(this);
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
+		this.textTrack = undefined;
   }
 
   render() {
@@ -32,11 +33,11 @@ class Video extends Component {
   }
 
   addCaption(caption) {
-    console.log(`addCaption(${JSON.stringify(caption)})`);
-		console.log(this.videoEl);
-		var textTrack = this.videoEl.addTextTrack("captions");
-		textTrack.mode = "showing";
-		textTrack.addCue(new window.VTTCue(caption.startTime, caption.startTime + caption.duration, caption.caption));
+		if ( this.textTrack == undefined ) {
+			this.textTrack = this.videoEl.addTextTrack("subtitles");
+			this.textTrack.mode = "showing";
+		}
+		this.textTrack.addCue(new window.VTTCue(caption.startTime, caption.startTime + caption.duration, caption.caption));
   }
 
   play() {
