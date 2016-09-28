@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './App.css';
 import videoSource from "./duke-vs-unc-1941.mp4";
-import Hello from './Hello.js';
 import Video from './Video.js';
 import CaptionForm from './CaptionForm.js';
 
