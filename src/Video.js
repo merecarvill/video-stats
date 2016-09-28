@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import { bindAll } from 'class-bind';
 
 class Video extends Component {
   constructor(props) {
     super(props);
-
-    this.addCaption = this.addCaption.bind(this);
-    this.play = this.play.bind(this);
-    this.pause = this.pause.bind(this);
+    bindAll(Video.prototype);
   }
 
   render() {

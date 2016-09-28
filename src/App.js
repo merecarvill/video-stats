@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { bindAll } from 'class-bind';
 
 import './App.css';
 import videoSource from "./duke-vs-unc-1941.mp4";
@@ -9,13 +10,12 @@ import CaptionForm from './CaptionForm.js';
 class App extends Component {
   constructor(props) {
     super(props);
+    bindAll(App.prototype);
+    
     this.state = {
       paused: false,
 			currentTime: 0.0
     }
-    this.handlePause = this.handlePause.bind(this);
-    this.handlePlay = this.handlePlay.bind(this);
-    this.handleSaveCaption = this.handleSaveCaption.bind(this);
   }
 
   render() {
