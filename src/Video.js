@@ -5,8 +5,9 @@ class Video extends Component {
     super(props);
 
     this.addCaption = this.addCaption.bind(this);
+    this.pause = this.pause.bind(this);
   }
-  
+
   render() {
     return (
       <video
@@ -31,6 +32,10 @@ class Video extends Component {
 
   addCaption(caption) {
     console.log(`addCaption(${JSON.stringify(caption)})`);
+  }
+
+  pause() {
+    this.videoEl.pause();
   }
 }
 
