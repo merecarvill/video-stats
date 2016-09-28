@@ -10,11 +10,15 @@ class CaptionForm extends Component {
 
     this.state = {
       caption: "",
-      startTime: this.props.startTime,
+      startTime: "",
       endTime: ""
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({startTime: nextProps.startTime});
   }
 
   handleSubmit() {
