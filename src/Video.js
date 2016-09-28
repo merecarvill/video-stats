@@ -6,7 +6,7 @@ class Video extends Component {
 
     this.addCaption = this.addCaption.bind(this);
   }
-  
+
   render() {
     return (
       <video
@@ -31,6 +31,10 @@ class Video extends Component {
 
   addCaption(caption) {
     console.log(`addCaption(${JSON.stringify(caption)})`);
+		console.log(this.videoEl);
+		var textTrack = this.videoEl.addTextTrack("captions");
+		textTrack.mode = "showing";
+		textTrack.addCue(new window.VTTCue(caption.startTime, caption.startTime + caption.duration, caption.caption));
   }
 }
 
