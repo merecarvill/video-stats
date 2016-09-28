@@ -8,7 +8,8 @@ class Video extends Component {
         muted={this.props.muted}
         autoPlay={this.props.autoPlay}
         poster={this.props.poster}
-        onPause={ () => { console.log("paused") } }
+        onPause={this.props.onPause}
+        onPlay={this.props.onPlay}
       >
         {this.renderSources(this.props.sources)}
       </video>

@@ -11,11 +11,11 @@ import CaptionForm from './CaptionForm.js';
 class App extends Component {
   constructor(props) {
     super(props);
-    
     this.state = {
       paused: false
     }
-
+    this.handlePause = this.handlePause.bind(this);
+    this.handlePlay = this.handlePlay.bind(this);
   }
 
   render() {
@@ -31,13 +31,28 @@ class App extends Component {
             </div>
 
             <div className="video-container">
-              <Video muted sources={sources}></Video>
+              <Video
+                muted
+								sources={sources}
+								onPause={this.handlePause}
+								onPlay={this.handlePlay}
+								></Video>
             </div>
-            
+
             <CaptionForm visible={!this.state.paused} />
         </div>
       </MuiThemeProvider>
     );
+  }
+
+  handlePause() {
+    this.setState({ paused: true })
+    console.log("paused!");
+  }
+
+  handlePlay() {
+    this.setState({ paused: false })
+    console.log("start!");
   }
 }
 
