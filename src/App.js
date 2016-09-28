@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+
 import './App.css';
 import Hello from './Hello.js';
-import { default as Video, Controls, Play, Mute, Seek, Fullscreen, Time, Overlay } from 'react-html5video';
-
+import Video from './Video.js';
 
 class App extends Component {
   render() {
@@ -13,19 +13,7 @@ class App extends Component {
         </div>
         <Hello greeting="Hello" />
 
-        <Video controls autoPlay loop muted poster="http://media.nbcchicago.com/images/971*546/GettyImages-81502920.jpg">
-            <source src="https://02-lvl3-pdl.vimeocdn.com/01/2040/5/135203185/399731354.mp4?expires=1475080951&token=0622557003605e1479ac5" type="video/mp4" />
-            <h1>Optional HTML and components can be added also</h1>
-            <Overlay />
-            <Controls>
-                <Play />
-                <Seek />
-                <Time />
-                <Mute />
-                <Fullscreen />
-            </Controls>
-        </Video>
-
+        <Video source="https://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"></Video>
       </div>
     );
   }
