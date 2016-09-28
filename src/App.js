@@ -15,6 +15,7 @@ class App extends Component {
     }
     this.handlePause = this.handlePause.bind(this);
     this.handlePlay = this.handlePlay.bind(this);
+    this.handleSaveCaption = this.handleSaveCaption.bind(this);
   }
 
   render() {
@@ -25,24 +26,26 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div className="App">
-            <div className="App-header">
-              <h2>DopeShow Video</h2>
-            </div>
+          <div className="App-header">
+            <h2>DopeShow Video</h2>
+          </div>
 
-            <div className="video-container">
-              <Video
-                muted
-								autoPlay
-								sources={sources}
-								onPause={this.handlePause}
-								onPlay={this.handlePlay}
-								></Video>
-            </div>
+          <div className="video-container">
+            <Video
+              muted
+              autoPlay
+              sources={sources}
+              onPause={this.handlePause}
+              onPlay={this.handlePlay}
+              ref="videoPlayer"
+            />
+          </div>
 
-            <CaptionForm
-							startTime={this.state.currentTime}
-							visible={this.state.paused}
-								/>
+          <CaptionForm
+            startTime={this.state.currentTime}
+            visible={this.state.paused}
+            onSaveCaption={this.handleSaveCaption}
+          />
         </div>
       </MuiThemeProvider>
     );
@@ -54,6 +57,10 @@ class App extends Component {
 
   handlePlay() {
     this.setState({ paused: false });
+  }
+
+  handleSaveCaption(caption) {
+    this.refs.videoPlayer.addCaption(caption);
   }
 }
 

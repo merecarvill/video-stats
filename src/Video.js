@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class Video extends Component {
+  constructor(props) {
+    super(props);
+
+    this.addCaption = this.addCaption.bind(this);
+  }
+  
   render() {
     return (
       <video
@@ -21,6 +27,10 @@ class Video extends Component {
     return sources.map((source, index) => {
       return <source key={index} src={source.url} type={source.type}/>
     });
+  }
+
+  addCaption(caption) {
+    console.log(`addCaption(${JSON.stringify(caption)})`);
   }
 }
 

@@ -30,6 +30,7 @@ class CaptionForm extends Component {
     const currentCaptions = this.storage.get("captions") || [];
     this.storage.set("captions", currentCaptions.concat(this.state));
     this.setState({ caption: "" });
+    this.props.onSaveCaption(this.state);
   }
 
   handleInputChange(e) {
