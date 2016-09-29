@@ -29,7 +29,7 @@ class App extends Component {
       <AppThemeWrapper>
         <div>
 
-          <div style={{ marginLeft:"auto", marginRight:"auto", textAlign:"center", width:"1350px" }}>
+          <div style={{ marginLeft:"auto", marginRight:"auto", textAlign:"center", width:"1350px", height: "600px" }}>
             <div style={{ width:"500px", float:"left" }}>
               <Video
                 muted
