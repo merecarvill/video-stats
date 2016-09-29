@@ -27,47 +27,44 @@ class App extends Component {
 
     return (
       <AppThemeWrapper>
-        <div className="App">
+        <div>
           <AppHeader appName="DopeShow Video"/>
-          <div className="outterWrapper" style={{marginLeft:"auto", marginRight:"auto", textAlign:"center", width:"1000px"}}>
-          <div style={{width:"500px", float:"left"}}>
-          <div className="video-container">
-            <Video
-              muted
-              autoPlay
-              sources={sources}
-              onPause={this.handlePause}
-              onPlay={this.handlePlay}
-              onSeeked={this.handleSeeked}
-              ref="videoPlayer"
-              captions={this.state.captions}
-            />
-          </div>
 
-          <CaptionForm
-            startTime={this.state.currentTime}
-            visible={this.state.paused}
-            onSaveCaption={this.handleSaveCaption}
-            onStartCaption={ () => this.refs.videoPlayer.pause() }
-          />
-          </div>
-           
-          <div style={{width:"500px", float:"left"}}>
-          <CaptionList
-            captions={this.state.captions}
-            onRowSelection={this.handleRowSelection}
-          />
-          </div>
+          <div style={{ marginLeft:"auto", marginRight:"auto", textAlign:"center", width:"1350px" }}>
+            <div style={{ width:"500px", float:"left" }}>
+              <Video
+                muted
+                autoPlay
+                sources={sources}
+                onPause={this.handlePause}
+                onPlay={this.handlePlay}
+                onSeeked={this.handleSeeked}
+                ref="videoPlayer"
+                captions={this.state.captions}
+              />
+
+              <CaptionForm
+                startTime={this.state.currentTime}
+                visible={this.state.paused}
+                onSaveCaption={this.handleSaveCaption}
+                onStartCaption={ () => this.refs.videoPlayer.pause() }
+              />
+            </div>
+
+            <div style={{ width:"800px", float:"right" }}>
+              <CaptionList
+                captions={this.state.captions}
+                onRowSelection={this.handleRowSelection}
+              />
+            </div>
           </div>
         </div>
       </AppThemeWrapper>
     );
   }
 
-  handleRowSelection(i, e){
-    console.log(this.state.captions[i].caption)
-    console.log(e)
-    this.refs.videoPlayer.seek(this.state.captions[i].startTime)
+  handleRowSelection(captionIndex){
+    this.refs.videoPlayer.seek(this.state.captions[captionIndex].startTime)
   }
 
   handlePause(e) {
