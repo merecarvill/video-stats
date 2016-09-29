@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { bindAll } from 'class-bind';
 
-import './App.css';
 import videoSource from "./crazy-funny-football-play-with-band.mp4";
 import Video from './Video.js';
 import CaptionForm from './CaptionForm.js';
