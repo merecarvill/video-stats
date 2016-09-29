@@ -21,6 +21,7 @@ class Video extends Component {
         poster={this.props.poster}
         onPause={this.props.onPause}
         onPlay={this.props.onPlay}
+        onSeeked={this.props.onSeeked}
         ref={(el) => { this.videoEl = el; }}
       >
         {this.renderSources(this.props.sources)}

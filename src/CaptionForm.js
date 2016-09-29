@@ -22,7 +22,7 @@ class CaptionForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({startTime: nextProps.startTime});
+    this.setState({ startTime: nextProps.startTime });
   }
 
   saveCaption() {
@@ -49,13 +49,6 @@ class CaptionForm extends Component {
             placeholder="Enter caption"
             name="caption"
             value={this.state.caption}
-            onChange={this.handleInputChange}
-          />
-          <br/>
-          <TextField
-            placeholder="Start time"
-            name="startTime"
-            value={this.state.startTime}
             onChange={this.handleInputChange}
           />
           <br/>

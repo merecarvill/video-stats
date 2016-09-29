@@ -12,7 +12,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     bindAll(App.prototype);
-    
+
     this.state = {
       paused: false,
 			currentTime: 0.0,
@@ -39,6 +39,7 @@ class App extends Component {
               sources={sources}
               onPause={this.handlePause}
               onPlay={this.handlePlay}
+              onSeeked={this.handleSeeked}
               ref="videoPlayer"
               captions={this.state.captions}
             />
@@ -65,6 +66,10 @@ class App extends Component {
 
   handlePlay() {
     this.setState({ paused: false });
+  }
+
+  handleSeeked(e) {
+    this.setState({ currentTime: e.currentTarget.currentTime });
   }
 
   handleSaveCaption(caption) {
