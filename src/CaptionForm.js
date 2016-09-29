@@ -19,7 +19,9 @@ class CaptionForm extends Component {
     this.state = {
       caption: "",
       startTime: "",
-      duration: 5
+      duration: 5,
+      visibility: "private"
+
     };
     this.storage = new Storage();
     this.storage.clear();
@@ -32,7 +34,7 @@ class CaptionForm extends Component {
   saveCaption() {
     const currentCaptions = this.storage.get("captions") || [];
     this.storage.set("captions", currentCaptions.concat(this.state));
-    this.setState({ caption: "" });
+    this.setState({ caption: "", visibility: "private" });
     this.props.onSaveCaption(this.state);
   }
 
@@ -69,12 +71,14 @@ class CaptionForm extends Component {
 							label="Private"
 							style={{ display: 'inline-block', width: '150px' }}
 							checkedIcon={<ActionVisibilityOff />}
+              onClick={this.handleInputChange}
 						/>
 						<RadioButton
 							value="public"
 							label="Public"
 							style={{ display: 'inline-block', width: '150px' }}
 							checkedIcon={<ActionVisibility />}
+              onClick={this.handleInputChange}
 						/>
 					</RadioButtonGroup>
           <br/>

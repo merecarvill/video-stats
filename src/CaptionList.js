@@ -17,6 +17,7 @@ class CaptionList extends Component {
               <TableRowColumn>{caption.caption}</TableRowColumn>
               <TableRowColumn>{this.formatCaptionTime(caption.startTime)}</TableRowColumn>
               <TableRowColumn>{`${caption.duration}s`}</TableRowColumn>
+              <TableRowColumn>{`${caption.visibility}`}</TableRowColumn>
             </TableRow>
           )
         }
@@ -41,6 +42,7 @@ class CaptionList extends Component {
             <TableHeaderColumn>Caption</TableHeaderColumn>
             <TableHeaderColumn>Start Time</TableHeaderColumn>
             <TableHeaderColumn>Duration</TableHeaderColumn>
+            <TableHeaderColumn>Visibility</TableHeaderColumn>
           </TableRow>
         </TableHeader>
         <TableBody>
