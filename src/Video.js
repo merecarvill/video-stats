@@ -50,6 +50,10 @@ class Video extends Component {
   pause() {
     this.videoEl.pause();
   }
+
+  seek(time) {
+    this.videoEl.currentTime = time;
+  }
 }
 
 export default Video;

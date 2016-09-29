@@ -26,7 +26,9 @@ class CaptionList extends Component {
 
   render() {
     return(
-      <Table>
+      <Table
+        onRowSelection={this.props.onRowSelection}
+      >
         <TableHeader>
           <TableRow>
             <TableHeaderColumn>Caption</TableHeaderColumn>
@@ -40,6 +42,8 @@ class CaptionList extends Component {
       </Table>
     );
   }
+
 }
+
 
 export default CaptionList;

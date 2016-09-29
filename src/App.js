@@ -3,7 +3,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { bindAll } from 'class-bind';
 
 import './App.css';
-import videoSource from "./duke-vs-unc-1941.mp4";
+//import videoSource from "./duke-vs-unc-1941.mp4";
+import videoSource from "./crazy-funny-football-play-with-band.mp4";
 import Video from './Video.js';
 import CaptionForm from './CaptionForm.js';
 import CaptionList from './CaptionList.js';
@@ -54,10 +55,17 @@ class App extends Component {
 
           <CaptionList
             captions={this.state.captions}
+            onRowSelection={this.handleRowSelection}
           />
         </div>
       </MuiThemeProvider>
     );
+  }
+
+  handleRowSelection(i, e){
+    console.log(this.state.captions[i].caption)
+    console.log(e)
+    this.refs.videoPlayer.seek(this.state.captions[i].startTime)
   }
 
   handlePause(e) {
