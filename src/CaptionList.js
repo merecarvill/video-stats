@@ -1,6 +1,7 @@
 import { bindAll } from 'class-bind';
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import React, { Component } from 'react';
+import Paper from 'material-ui/Paper';
 
 class CaptionList extends Component {
   constructor(props) {
@@ -34,19 +35,21 @@ class CaptionList extends Component {
 
   render() {
     return(
-      <Table onRowSelection={this.props.onRowSelection}>
-        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-          <TableRow>
-            <TableHeaderColumn>Caption</TableHeaderColumn>
-            <TableHeaderColumn>Start Time</TableHeaderColumn>
-            <TableHeaderColumn>Duration</TableHeaderColumn>
-            <TableHeaderColumn>Visibility</TableHeaderColumn>
-          </TableRow>
-        </TableHeader>
-        <TableBody displayRowCheckbox={false} stripedRows={true}>
-          {this.renderRows()}
-        </TableBody>
-      </Table>
+      <Paper zDepth={2}>
+        <Table onRowSelection={this.props.onRowSelection}>
+          <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+            <TableRow>
+              <TableHeaderColumn>Caption</TableHeaderColumn>
+              <TableHeaderColumn>Start Time</TableHeaderColumn>
+              <TableHeaderColumn>Duration</TableHeaderColumn>
+              <TableHeaderColumn>Visibility</TableHeaderColumn>
+            </TableRow>
+          </TableHeader>
+          <TableBody displayRowCheckbox={false} stripedRows={true}>
+            {this.renderRows()}
+          </TableBody>
+        </Table>
+      </Paper>
     );
   }
 
