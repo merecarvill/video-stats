@@ -6,6 +6,7 @@ import './App.css';
 import videoSource from "./duke-vs-unc-1941.mp4";
 import Video from './Video.js';
 import CaptionForm from './CaptionForm.js';
+import CaptionList from './CaptionList.js';
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ class App extends Component {
     
     this.state = {
       paused: false,
-			currentTime: 0.0
+			currentTime: 0.0,
+			captions: []
     }
   }
 
@@ -38,6 +40,7 @@ class App extends Component {
               onPause={this.handlePause}
               onPlay={this.handlePlay}
               ref="videoPlayer"
+              captions={this.state.captions}
             />
           </div>
 
@@ -46,6 +49,10 @@ class App extends Component {
             visible={this.state.paused}
             onSaveCaption={this.handleSaveCaption}
             onStartCaption={ () => this.refs.videoPlayer.pause() }
+          />
+
+          <CaptionList
+            captions={this.state.captions}
           />
         </div>
       </MuiThemeProvider>
@@ -63,6 +70,12 @@ class App extends Component {
   handleSaveCaption(caption) {
     this.refs.videoPlayer.addCaption(caption);
     this.refs.videoPlayer.play();
+    this.addCaption(caption);
+  }
+
+  addCaption(caption) {
+    const captions = [...this.state.captions, caption];
+    this.setState({captions: captions});
   }
 }
 
