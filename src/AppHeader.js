@@ -8,7 +8,7 @@ class AppHeader extends Component {
     return (
       <AppBar
         title={this.props.appName}
-        titleStyle={{ textAlign: "left" }}
+        titleStyle={{ textAlign: "left", marginLeft: "27px" }}
         showMenuIconButton={false}
       >
         <div style={{ padding: "5px" }}>
