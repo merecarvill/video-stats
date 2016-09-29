@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
 import { bindAll } from 'class-bind';
+import React, { Component } from 'react';
 
 class Video extends Component {
   constructor(props) {

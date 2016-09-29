@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import { bindAll } from 'class-bind';
+import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
+import React, { Component } from 'react';
 
 class CaptionList extends Component {
   constructor(props) {
