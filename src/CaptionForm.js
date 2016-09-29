@@ -6,6 +6,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import RaisedButton from 'material-ui/RaisedButton';
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
+import Paper from 'material-ui/Paper';
+
 
 import Storage from "./storage.js";
 
@@ -31,6 +33,16 @@ class CaptionForm extends Component {
     this.setState({ startTime: nextProps.startTime });
   }
 
+  valid() {
+    const { caption, startTime, duration } = this.state;
+    return caption && startTime && duration &&
+           this.isNumeric(startTime) && this.isNumeric(duration);
+  }
+
+  isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+  }
+
   saveCaption() {
     const currentCaptions = this.storage.get("captions") || [];
     this.storage.set("captions", currentCaptions.concat(this.state));
@@ -50,49 +62,56 @@ class CaptionForm extends Component {
   render() {
     if (this.props.visible) {
       return(
-        <form className="captionForm">
-          <TextField
-            placeholder="Enter caption"
-            name="caption"
-            value={this.state.caption}
-            onChange={this.handleInputChange}
-          />
-          <br/>
-          <TextField
-            placeholder="Duration"
-            name="duration"
-            value={this.state.duration}
-            onChange={this.handleInputChange}
-          />
-          <br/>
-					<RadioButtonGroup name="visibility" defaultSelected="private">
-						<RadioButton
-							value="private"
-							label="Private"
-							style={{ display: 'inline-block', width: '150px' }}
-							checkedIcon={<ActionVisibilityOff />}
-              onClick={this.handleInputChange}
-						/>
-						<RadioButton
-							value="public"
-							label="Public"
-							style={{ display: 'inline-block', width: '150px' }}
-							checkedIcon={<ActionVisibility />}
-              onClick={this.handleInputChange}
-						/>
-					</RadioButtonGroup>
-          <br/>
-          <RaisedButton
-            label="Save"
-            onClick={this.saveCaption} primary={true}
-          />
-        </form>
+        <Paper zDepth={2}>
+          <form className="captionForm">
+            <TextField
+              floatingLabelText="Enter caption"
+              hintText="Caption text"
+              name="caption"
+              value={this.state.caption}
+              onChange={this.handleInputChange}
+            />
+            <br/>
+            <TextField
+              floatingLabelText="Duration (seconds)"
+              name="duration"
+              hintText="5"
+              value={this.state.duration}
+              onChange={this.handleInputChange}
+            />
+            <br/>
+            <br/>
+            <RadioButtonGroup name="visibility" defaultSelected="private">
+              <RadioButton
+                value="private"
+                label="Private"
+                style={{ display: 'inline-block', width: '150px' }}
+                checkedIcon={<ActionVisibilityOff />}
+                onClick={this.handleInputChange}
+              />
+              <RadioButton
+                value="public"
+                label="Public"
+                style={{ display: 'inline-block', width: '150px' }}
+                checkedIcon={<ActionVisibility />}
+                onClick={this.handleInputChange}
+              />
+            </RadioButtonGroup>
+            <RaisedButton
+              label="Save"
+              onClick={this.saveCaption} primary={true}
+              style={{ margin: 20}}
+              disabled={!this.valid()}
+            />
+          </form>
+        </Paper>
       );
     } else {
       return(
         <RaisedButton
           label="Add caption"
-          onClick={this.props.onStartCaption} primary={true}
+          onClick={this.props.onStartCaption} 
+          primary={true}
         />
       )
     }

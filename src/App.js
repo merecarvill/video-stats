@@ -28,7 +28,6 @@ class App extends Component {
     return (
       <AppThemeWrapper>
         <div>
-          <AppHeader appName="DopeShow Video"/>
 
           <div style={{ marginLeft:"auto", marginRight:"auto", textAlign:"center", width:"1350px" }}>
             <div style={{ width:"500px", float:"left" }}>
@@ -51,7 +50,7 @@ class App extends Component {
               />
             </div>
 
-            <div style={{ width:"800px", float:"right" }}>
+            <div style={{ margin:"20px", width:"500px", float:"left" }}>
               <CaptionList
                 captions={this.state.captions}
                 onRowSelection={this.handleRowSelection}
