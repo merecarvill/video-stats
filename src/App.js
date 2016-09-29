@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { bindAll } from 'class-bind';
 
 import videoSource from "./duke-vs-unc-1941.mp4";
@@ -26,7 +28,7 @@ class App extends Component {
     ];
 
     return (
-      <MuiThemeProvider>
+      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
         <div className="App">
           <AppHeader appName="DopeShow Video"/>
 
