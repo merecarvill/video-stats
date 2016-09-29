@@ -14,6 +14,7 @@ class CaptionList extends Component {
         (caption, index) => {
           return(
             <TableRow key={index}>
+              <TableRowColumn>{index}</TableRowColumn>
               <TableRowColumn>{caption.caption}</TableRowColumn>
               <TableRowColumn>{this.formatCaptionTime(caption.startTime)}</TableRowColumn>
               <TableRowColumn>{`${caption.duration}s`}</TableRowColumn>
@@ -33,17 +34,16 @@ class CaptionList extends Component {
 
   render() {
     return(
-      <Table
-        onRowSelection={this.props.onRowSelection}
-      >
-        <TableHeader>
+      <Table onRowSelection={this.props.onRowSelection}>
+        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
           <TableRow>
+            <TableHeaderColumn>ID</TableHeaderColumn>
             <TableHeaderColumn>Caption</TableHeaderColumn>
             <TableHeaderColumn>Start Time</TableHeaderColumn>
             <TableHeaderColumn>Duration</TableHeaderColumn>
           </TableRow>
         </TableHeader>
-        <TableBody>
+        <TableBody displayRowCheckbox={false} stripedRows={true}>
           {this.renderRows()}
         </TableBody>
       </Table>
