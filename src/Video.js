@@ -35,7 +35,7 @@ class Video extends Component {
   }
 
   addCaption(caption) {
-		if ( this.textTrack == undefined ) {
+		if ( this.textTrack === undefined ) {
 			this.textTrack = this.videoEl.addTextTrack("subtitles");
 			this.textTrack.mode = "showing";
 		}
