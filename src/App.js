@@ -29,7 +29,8 @@ class App extends Component {
       <AppThemeWrapper>
         <div className="App">
           <AppHeader appName="DopeShow Video"/>
-
+          <div className="outterWrapper" style={{marginLeft:"auto", marginRight:"auto", textAlign:"center", width:"1000px"}}>
+          <div style={{width:"500px", float:"left"}}>
           <div className="video-container">
             <Video
               muted
@@ -49,11 +50,15 @@ class App extends Component {
             onSaveCaption={this.handleSaveCaption}
             onStartCaption={ () => this.refs.videoPlayer.pause() }
           />
-
+          </div>
+           
+          <div style={{width:"500px", float:"left"}}>
           <CaptionList
             captions={this.state.captions}
             onRowSelection={this.handleRowSelection}
           />
+          </div>
+          </div>
         </div>
       </AppThemeWrapper>
     );
