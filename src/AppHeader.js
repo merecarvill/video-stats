@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
+import React, { Component } from 'react';
+
 import logoSource from './logo-ncsa.png';
 
 class AppHeader extends Component {

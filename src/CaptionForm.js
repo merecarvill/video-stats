@@ -1,12 +1,13 @@
+import { bindAll } from 'class-bind';
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+import ActionVisibility from 'material-ui/svg-icons/action/visibility';
+import ActionVisibilityOff from 'material-ui/svg-icons/action/visibility-off';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import RaisedButton from 'material-ui/RaisedButton';
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
-import RaisedButton from 'material-ui/RaisedButton';
-import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-import ActionVisibilityOff from 'material-ui/svg-icons/action/visibility-off';
-import ActionVisibility from 'material-ui/svg-icons/action/visibility';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+
 import Storage from "./storage.js";
-import { bindAll } from 'class-bind';
 
 injectTapEventPlugin();
 

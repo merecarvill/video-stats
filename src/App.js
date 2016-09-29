@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { bindAll } from 'class-bind';
 
 import videoSource from "./duke-vs-unc-1941.mp4";
-import Video from './Video.js';
+
+import AppHeader from './AppHeader.js';
+import AppThemeWrapper from './AppThemeWrapper.js'
 import CaptionForm from './CaptionForm.js';
 import CaptionList from './CaptionList.js';
-import AppHeader from './AppHeader.js';
+import Video from './Video.js';
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +27,7 @@ class App extends Component {
     ];
 
     return (
-      <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+      <AppThemeWrapper>
         <div className="App">
           <AppHeader appName="DopeShow Video"/>
 
@@ -56,7 +55,7 @@ class App extends Component {
             captions={this.state.captions}
           />
         </div>
-      </MuiThemeProvider>
+      </AppThemeWrapper>
     );
   }
 
