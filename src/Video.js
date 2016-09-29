@@ -37,7 +37,7 @@ class Video extends Component {
 
   addCaption(caption) {
 		if ( this.textTrack === undefined ) {
-			this.textTrack = this.videoEl.addTextTrack("subtitles");
+			this.textTrack = this.videoEl.addTextTrack("subtitles", "Coach Ditka", "en");
 			this.textTrack.mode = "showing";
 		}
     const duration = parseInt(caption.duration, 10);
