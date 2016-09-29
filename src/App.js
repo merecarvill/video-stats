@@ -6,15 +6,16 @@ import './App.css';
 import videoSource from "./duke-vs-unc-1941.mp4";
 import Video from './Video.js';
 import CaptionForm from './CaptionForm.js';
+import Statistics from './Statistics.js';
 
 class App extends Component {
   constructor(props) {
     super(props);
     bindAll(App.prototype);
-    
+
     this.state = {
       paused: false,
-			currentTime: 0.0
+      currentTime: 0.0
     }
   }
 
@@ -47,6 +48,8 @@ class App extends Component {
             onSaveCaption={this.handleSaveCaption}
             onStartCaption={ () => this.refs.videoPlayer.pause() }
           />
+
+          <Statistics />
         </div>
       </MuiThemeProvider>
     );

@@ -73,12 +73,12 @@ class CaptionForm extends Component {
         </form>
       );
     } else {
-			return(
+      return(
         <RaisedButton
           label="Add caption"
           onClick={this.props.onStartCaption} primary={true}
         />
-			)
+      )
     }
   }
 }
