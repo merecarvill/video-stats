@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
+import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import ActionVisibilityOff from 'material-ui/svg-icons/action/visibility-off';
+import ActionVisibility from 'material-ui/svg-icons/action/visibility';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Storage from "./storage.js";
 import { bindAll } from 'class-bind';
@@ -59,6 +62,21 @@ class CaptionForm extends Component {
             onChange={this.handleInputChange}
           />
           <br/>
+					<RadioButtonGroup name="visibility" defaultSelected="private">
+						<RadioButton
+							value="private"
+							label="Private"
+							style={{ display: 'inline-block', width: '150px' }}
+							checkedIcon={<ActionVisibilityOff />}
+						/>
+						<RadioButton
+							value="public"
+							label="Public"
+							style={{ display: 'inline-block', width: '150px' }}
+							checkedIcon={<ActionVisibility />}
+						/>
+					</RadioButtonGroup>
+          <br/>
           <RaisedButton
             label="Save"
             onClick={this.saveCaption} primary={true}
@@ -66,12 +84,12 @@ class CaptionForm extends Component {
         </form>
       );
     } else {
-			return(
+      return(
         <RaisedButton
           label="Add caption"
           onClick={this.props.onStartCaption} primary={true}
         />
-			)
+      )
     }
   }
 }
