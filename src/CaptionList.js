@@ -15,13 +15,20 @@ class CaptionList extends Component {
           return(
             <TableRow key={index}>
               <TableRowColumn>{caption.caption}</TableRowColumn>
-              <TableRowColumn>{caption.startTime}</TableRowColumn>
-              <TableRowColumn>{caption.duration}</TableRowColumn>
+              <TableRowColumn>{this.formatCaptionTime(caption.startTime)}</TableRowColumn>
+              <TableRowColumn>{`${caption.duration}s`}</TableRowColumn>
             </TableRow>
           )
         }
       )
     );
+  }
+
+  formatCaptionTime(startSeconds) {
+    const minutes = Math.floor((startSeconds / 60) % 60);
+    const seconds = Math.floor(startSeconds % 60);
+
+    return seconds < 10 ? `${minutes}:0${seconds}` : `${minutes}:${seconds}`;
   }
 
   render() {
