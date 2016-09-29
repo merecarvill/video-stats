@@ -40,7 +40,8 @@ class Video extends Component {
 			this.textTrack = this.videoEl.addTextTrack("subtitles");
 			this.textTrack.mode = "showing";
 		}
-		this.textTrack.addCue(new window.VTTCue(caption.startTime, caption.startTime + caption.duration, caption.caption));
+    const duration = parseInt(caption.duration);
+		this.textTrack.addCue(new window.VTTCue(caption.startTime, caption.startTime + duration, caption.caption));
   }
 
   play() {
